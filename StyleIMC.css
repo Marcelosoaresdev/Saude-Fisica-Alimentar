@@ -1,0 +1,404 @@
+/* ================= FONTES LOCAIS ================= */
+@font-face {
+  font-family: 'Agrandir Tight Black';
+  src: url('fonts/Agrandir-TightBlack.woff2') format('woff2'),
+    url('fonts/Agrandir-TightBlack.woff') format('woff'),
+    url('fonts/Agrandir-TightBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Agrandir Tight Bold';
+  src: url('fonts/Agrandir-TightBold.woff2') format('woff2'),
+    url('fonts/Agrandir-TightBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================= RESET E BÁSICO ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+body {
+  
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background: url(conceito-saudavel-e-fitness-linda-dama-africana-americana-em-treino-de-roupas-fitness-com-haltere-isolado-em-fundo-branco.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: #212529;
+  text-align: center;
+}
+
+/* ================= HEADER (CLARO + STICKY) ================= */
+.header {
+  position: sticky;
+  /* participa do fluxo; não precisa compensar com padding no body */
+  top: 0;
+  background: #faf8f3;
+  /* claro, como o novo header */
+  border-bottom: 1px solid #eeeeee;
+  z-index: 100;
+  /* acima do conteúdo; overlay fica acima (z-index: 98/99) */
+}
+
+.header-container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 101;
+}
+
+.logo-container a {
+  text-decoration: none;
+}
+
+.header .imlog {
+  width: 40px;
+  height: auto;
+}
+
+.logo-text {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: #111;
+  text-decoration: none;
+}
+
+/* ================= HAMBÚRGUER ================= */
+/* Escondido por padrão; exibido no mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 102;
+  margin-left: auto;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #111;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= MENU NAV ================= */
+.nav-menu {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: #111;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.btn-nav {
+  border: 2px solid #111;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-weight: 700;
+}
+
+/* ================= OVERLAY (MOBILE) ================= */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-overlay[hidden] {
+  display: none;
+}
+
+/* ================= MOBILE (OFF-CANVAS MENU) ================= */
+@media (max-width: 768px) {
+  .header-container {
+    width: 95%;
+    padding: 12px 0;
+    position: relative;
+  }
+
+  .logo-text {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+  }
+
+  .header .imlog {
+    width: 35px;
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #faf8f3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 80px;
+    gap: 0;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-menu a {
+    width: 90%;
+    padding: 15px 20px;
+    font-size: 18px;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .btn-nav {
+    background: #067a45;
+    color: #fff;
+    border: 2px solid #067a45;
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin: 20px auto 0;
+    font-weight: 700;
+    width: 90%;
+    max-width: 200px;
+    text-align: center;
+    display: block;
+  }
+
+  .btn-nav:hover {
+    background: #055a35;
+    border-color: #055a35;
+  }
+}
+
+/* ================= DESKTOP AJUSTES ================= */
+@media (min-width: 769px) {
+  .header .imlog {
+    width: 50px;
+  }
+
+  .logo-text {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+  }
+}
+
+/* ================= SEÇÕES IMC (MANTIDAS) ================= */
+/* Diminui a margem superior já que o header é sticky */
+.containerIMC {
+  margin: 48px auto 30px auto;
+  /* antes 120px; sticky não precisa compensar */
+  max-width: 700px;
+  text-align: left;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+main {
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.containerIMC {
+
+  text-align: center;
+
+}
+
+h1 {
+  font-family: 'Agrandir Tight Black', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #055a05;
+}
+
+p {
+  font-family: 'Agrandir Tight Bold', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.calculadora {
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+
+}
+
+.input,
+.resultado {
+
+  font-family: 'Agrandir Tight Bold', sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.input input {
+
+
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+
+  font-family: 'Agrandir Tight Bold', sans-serif;
+  padding: 0.8rem;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+}
+
+button:hover {
+
+  background: #333;
+
+}
+
+.resultado {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 180px;
+
+}
+
+.resultado h3 {
+  font-family: 'Agrandir Tight Black', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #055a35;
+
+}
+
+#resultadoIMC {
+
+  font-family: 'Agrandir Tight Black', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #111827;
+
+}
+
+#classificacaoIMC {
+  font-family: 'Agrandir Tight Bold', sans-serif;
+  font-size: 1rem;
+  color: #374151;
+
+}
+
+.btSM {
+
+  gap: 1rem;
+  font-family: 'Agrandir Tight Bold', sans-serif;
+  padding: 1rem;
+  background: #055a05;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+}
