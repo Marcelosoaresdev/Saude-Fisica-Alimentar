@@ -1,15 +1,15 @@
 // Menu Hambúrguer e Carrossel de Vídeos
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // ===========================
   // MENU HAMBÚRGUER
   // ===========================
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
 
   if (hamburger && navMenu) {
     // Criar overlay
-    const overlay = document.createElement('div');
-    overlay.className = 'menu-overlay';
+    const overlay = document.createElement("div");
+    overlay.className = "menu-overlay";
     overlay.style.cssText = `
       position: fixed;
       top: 0;
@@ -24,62 +24,62 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
     document.body.appendChild(overlay);
 
-    hamburger.addEventListener('click', function () {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
+    hamburger.addEventListener("click", function () {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
 
       // Previne scroll quando menu está aberto
-      if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-        overlay.style.opacity = '1';
-        overlay.style.visibility = 'visible';
+      if (navMenu.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+        overlay.style.opacity = "1";
+        overlay.style.visibility = "visible";
       } else {
-        document.body.style.overflow = '';
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
+        document.body.style.overflow = "";
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
       }
     });
 
     // Fecha menu ao clicar em um link
-    const navLinks = navMenu.querySelectorAll('a');
+    const navLinks = navMenu.querySelectorAll("a");
     navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.style.overflow = "";
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
       });
     });
 
     // Fecha menu ao clicar no overlay
-    overlay.addEventListener('click', function () {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      document.body.style.overflow = '';
-      overlay.style.opacity = '0';
-      overlay.style.visibility = 'hidden';
+    overlay.addEventListener("click", function () {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+      document.body.style.overflow = "";
+      overlay.style.opacity = "0";
+      overlay.style.visibility = "hidden";
     });
 
     // Fecha menu ao clicar fora dele
-    document.addEventListener('click', function (e) {
+    document.addEventListener("click", function (e) {
       if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.style.overflow = "";
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
       }
     });
 
     // Fecha menu ao redimensionar para desktop
-    window.addEventListener('resize', function () {
+    window.addEventListener("resize", function () {
       if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.style.overflow = "";
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
       }
     });
   }
@@ -87,11 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // ===========================
   // CARROSSEL DE VÍDEOS
   // ===========================
-  const videoContainer = document.getElementById('videoContainer');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const indicators = document.querySelectorAll('.indicator');
-  const slides = document.querySelectorAll('.video-slide');
+  const videoContainer = document.getElementById("videoContainer");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const indicators = document.querySelectorAll(".indicator");
+  const slides = document.querySelectorAll(".video-slide");
 
   let currentSlide = 0;
   const maxSlides = slides.length;
@@ -105,12 +105,12 @@ document.addEventListener('DOMContentLoaded', function () {
     currentSlide = slideIndex;
 
     // Remove classe active de todos os slides e indicadores
-    slides.forEach((slide) => slide.classList.remove('active'));
-    indicators.forEach((indicator) => indicator.classList.remove('active'));
+    slides.forEach((slide) => slide.classList.remove("active"));
+    indicators.forEach((indicator) => indicator.classList.remove("active"));
 
     // Adiciona classe active ao slide e indicador atual
-    slides[slideIndex].classList.add('active');
-    indicators[slideIndex].classList.add('active');
+    slides[slideIndex].classList.add("active");
+    indicators[slideIndex].classList.add("active");
 
     // Para mobile (768px ou menos), mostrar apenas um slide centralizado
     if (window.innerWidth <= 768) {
@@ -138,11 +138,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Pausa todos os vídeos exceto o ativo
     slides.forEach((slide, index) => {
-      const iframe = slide.querySelector('iframe');
+      const iframe = slide.querySelector("iframe");
       if (index !== slideIndex && iframe) {
         iframe.contentWindow.postMessage(
           '{"event":"command","func":"pauseVideo","args":""}',
-          '*',
+          "*"
         );
       }
     });
@@ -165,22 +165,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Event listeners para os botões
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
 
   // Event listeners para os indicadores
   indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
+    indicator.addEventListener("click", () => {
       currentSlide = index;
       showSlide(currentSlide);
     });
   });
 
   // Navegação por teclado
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
       prevSlide();
-    } else if (e.key === 'ArrowRight') {
+    } else if (e.key === "ArrowRight") {
       nextSlide();
     }
   });
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Redimensionamento da janela
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     if (slides.length > 0) {
       showSlide(currentSlide);
     }
@@ -204,12 +204,12 @@ document.addEventListener('DOMContentLoaded', function () {
   let endY = 0;
 
   if (videoContainer) {
-    videoContainer.addEventListener('touchstart', (e) => {
+    videoContainer.addEventListener("touchstart", (e) => {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
     });
 
-    videoContainer.addEventListener('touchend', (e) => {
+    videoContainer.addEventListener("touchend", (e) => {
       endX = e.changedTouches[0].clientX;
       endY = e.changedTouches[0].clientY;
 
