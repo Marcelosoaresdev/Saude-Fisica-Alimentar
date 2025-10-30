@@ -74,61 +74,7 @@
     </div>
   </section>
 
-  <script src="../js/ScriptHome.js"></script>
-  <script>
-    // Script para controle do menu hambúrguer
-    document.addEventListener('DOMContentLoaded', function () {
-      const hamburger = document.getElementById('hamburger');
-      const navMenu = document.getElementById('nav-menu');
-      const menuOverlay = document.getElementById('menu-overlay');
-      const navLinks = document.querySelectorAll('.nav-menu a');
-
-      // Função para abrir/fechar menu
-      function toggleMenu() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-
-        // Prevenir scroll do body quando menu estiver aberto
-        if (navMenu.classList.contains('active')) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'auto';
-        }
-      }
-
-      // Função para fechar menu
-      function closeMenu() {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
-
-      // Event listeners
-      hamburger.addEventListener('click', toggleMenu);
-      menuOverlay.addEventListener('click', closeMenu);
-
-      // Fechar menu ao clicar em um link
-      navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      // Fechar menu com ESC
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-          closeMenu();
-        }
-      });
-
-      // Fechar menu ao redimensionar para desktop
-      window.addEventListener('resize', function () {
-        if (window.innerWidth >= 768) {
-          closeMenu();
-        }
-      });
-    });
-  </script>
+  <script src="../js/ScriptForm.js"></script>
 </body>
 
 </html>
