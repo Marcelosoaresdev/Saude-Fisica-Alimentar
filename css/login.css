@@ -13,7 +13,7 @@ body.is-locked {
 
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  background-image: url("img/fundo.png");
+  background-image: url("/imagens/loginPage/fundo.png");
   background-color: #000;
   background-size: cover;        /* cobre toda a tela mantendo proporção */
   background-position: left;
