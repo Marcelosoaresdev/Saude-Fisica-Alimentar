@@ -1,0 +1,388 @@
+/* ===========================
+   BASE E RESET
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+body {
+  font-family: "Agrandir Tight Black";
+  src: url("../fonts/Agrandir-TightBlack.woff2") format("woff2"),
+    url("../fonts/Agrandir-TightBlack.woff") format("woff"),
+    url("../fonts/Agrandir-TightBlack.ttf") format("truetype");
+  font-weight: 400; /* texto geral normal */
+  font-style: normal;
+  font-display: swap;
+  background-image: url("img/fundo.png");
+  background-color: #000;
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+  margin-left: 0px;
+}
+
+.logo-container img {
+  width: 45px;
+  height: auto;
+  position: relative;
+  left: 1px;
+}
+
+.logo-text {
+  font-weight: 900; /* mantém LifeHub em negrito */
+  font-size: 30px;
+  color: #111;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: #faf8f3;
+  border-bottom: 1px solid #eeeeee;
+  z-index: 100;
+}
+
+.header-container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 102;
+  margin-left: auto;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #111;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===========================
+   NAV MENU
+=========================== */
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: #111;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400; /* tira o negrito do menu */
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.btn-nav {
+  border: 2px solid #111;
+  border-radius: 10px;
+  padding: 8px 14px;
+  margin-left: 25px;
+  font-weight: 900; /* mantém "Comece Agora" em negrito */
+}
+
+/* ===========================
+   MOBILE MENU
+=========================== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #faf8f3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 80px;
+    gap: 30px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    display: flex;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  .nav-menu a {
+    width: 90%;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .btn-nav {
+    background: #067a45;
+    color: #fff;
+    border: 2px solid #067a45;
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin-top: 40px;
+    width: 90%;
+    max-width: 200px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    font-weight: 900; /* mantém negrito no mobile também */
+  }
+
+  .btn-nav:hover {
+    background: #055a35;
+    border-color: #055a35;
+  }
+}
+
+/* ===========================
+   OVERLAY
+=========================== */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 98;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-overlay[hidden] {
+  display: none;
+}
+
+/* ===========================
+   FORMULÁRIOS
+=========================== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 480px;
+  margin-top: 80px;
+}
+
+.form-section {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(248, 248, 248, 0.2);
+  border-radius: 10px;
+  padding: 30px 40px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.form-section h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  padding: 20px 45px 20px 20px;
+  font-size: 16px;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: #067a45;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.login {
+  width: 100%;
+  height: 50px;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  color: #000000;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.login:hover {
+  background-color: transparent;
+  border: 2px solid rgba(7, 1, 1, 0.2);
+  color: #fff;
+}
+
+.switch-form {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.switch-form a {
+  color: #520861;
+  text-decoration: none;
+}
+
+.remenber-forgot {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .form-section h1 {
+    font-size: 32px;
+  }
+
+  .input-box input {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-section h1 {
+    font-size: 28px;
+  }
+
+  .input-box input {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    width: 600px;
+  }
+
+  .form-section {
+    padding: 40px 50px;
+  }
+
+  .form-section h1 {
+    font-size: 40px;
+  }
+
+  .input-box input {
+    font-size: 18px;
+  }
+}
+
+/* ===========================
+   FUNDO RESPONSIVO
+=========================== */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-position: right;
+    background-size: cover;
+  }
+}
