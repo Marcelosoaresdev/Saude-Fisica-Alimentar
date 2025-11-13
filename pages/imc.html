@@ -2,99 +2,164 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LifeHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Calculadora de IMC - LifeHub" />
+    <title>Calculadora IMC - LifeHub</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/StyleIMC.css" />
+    <!-- Favicon -->
     <link rel="icon" href="../imagens/favicon.ico" />
-    <script src="../js/ScriptIMC.js" defer></script>
   </head>
 
   <body>
-    <header class="header">
-      <div class="header-container">
-        <div class="logo-container">
-          <img
-            class="imlog"
-            src="../imagens/android-chrome-512x512-removebg-preview.png"
-            alt="logo do site"
-          />
-          <a href="../index.html">
-            <div class="logo-text">LifeHub</div>
+    <!-- ===========================
+       HEADER - NAVBAR BOOTSTRAP
+  =========================== -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand d-flex align-items-center"
+            href="../index.html"
+          >
+            <img
+              src="../imagens/android-chrome-512x512-removebg-preview.png"
+              alt="Logo LifeHub"
+              width="40"
+              height="40"
+              class="me-2"
+            />
+            <span class="fw-bold">LifeHub</span>
           </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Alternar navegação"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="planos.html">Planos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Nutrição</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="imc.html"
+                  >Calculadora IMC</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Treinos</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btn-success-custom ms-lg-2"
+                  href="cadastro.html"
+                  >Comece Agora</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <!-- Menu Hambúrguer (mesma estrutura, só ARIA p/ acessibilidade) -->
-        <div
-          class="hamburger"
-          id="hamburger"
-          role="button"
-          tabindex="0"
-          aria-label="Abrir menu de navegação"
-          aria-controls="nav-menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <!-- Menu de Navegação -->
-        <nav class="nav" aria-label="Navegação principal">
-          <ul class="nav-menu" id="nav-menu">
-            <li><a href="../index.html">Início</a></li>
-            <li><a href="planos.html">Planos</a></li>
-            <li><a href="#">Nutrição</a></li>
-            <li><a href="imc.html" class="active">Calculadora IMC</a></li>
-            <li><a href="#">Treinos</a></li>
-            <li><a href="cadastro.html" class="btn-nav">Comece Agora</a></li>
-          </ul>
-        </nav>
-      </div>
+      </nav>
     </header>
 
-    <!-- Overlay para o menu mobile (fora do header) -->
-    <div class="menu-overlay" id="menu-overlay" hidden></div>
+    <!-- ===========================
+       CONTEÚDO PRINCIPAL
+  =========================== -->
+    <main class="main-content">
+      <section class="imc-section">
+        <div class="containerIMC">
+          <header class="section-header">
+            <h1>Calculadora IMC</h1>
+            <p class="section-description">
+              Entre com as informações solicitadas para que seu perfil seja
+              traçado corretamente
+            </p>
+          </header>
 
-    <!-- Conteúdo principal -->
-    <main>
-      <div class="containerIMC">
-        <h1>Calculadora IMC</h1>
+          <div class="calculadora">
+            <!-- Formulário de Entrada -->
+            <form
+              class="input-form"
+              id="imcForm"
+              aria-label="Formulário de cálculo IMC"
+            >
+              <div class="form-group">
+                <label for="peso">Peso (kg)</label>
+                <input
+                  type="number"
+                  id="peso"
+                  name="peso"
+                  placeholder="Ex: 70"
+                  min="1"
+                  max="500"
+                  step="0.1"
+                  required
+                  aria-required="true"
+                />
+              </div>
 
-        <p>
-          Entre com as informações solicitadas para que seu perfil seja traçado
-          corretamente
-        </p>
+              <div class="form-group">
+                <label for="altura">Altura (cm)</label>
+                <input
+                  type="number"
+                  id="altura"
+                  name="altura"
+                  placeholder="Ex: 175"
+                  min="50"
+                  max="300"
+                  step="0.1"
+                  required
+                  aria-required="true"
+                />
+              </div>
 
-        <div class="calculadora">
-          <div class="input">
-            <label for="peso">Peso (kg)</label>
-            <input
-              type="number"
-              id="peso"
-              aria-labelledby="peso"
-              placeholder="Ex:70 Kg"
-            />
+              <button type="button" id="calcular" class="btn-calcular">
+                Calcular
+              </button>
+            </form>
 
-            <label for="altura">Altura (cm)</label>
-            <input
-              type="number"
-              id="altura"
-              aria-labelledby="altura"
-              placeholder="Ex:175 cm"
-            />
-
-            <button id="calcular">Calcular</button>
-          </div>
-
-          <div class="resultado">
-            <h3>IMC</h3>
-            <p id="resultadoIMC">22.8</p>
-
-            <span id="classificacaoIMC">Classificação: Normal</span>
-            <button class="btSM" id="saibaM">Saiba Mais</button>
+            <!-- Área de Resultado -->
+            <aside class="resultado" aria-live="polite" aria-atomic="true">
+              <h2 class="resultado-titulo">IMC</h2>
+              <p id="resultadoIMC" class="resultado-valor">22.8</p>
+              <span id="classificacaoIMC" class="resultado-classificacao"
+                >Classificação: Normal</span
+              >
+              <button class="btn-saiba-mais" id="saibaM" type="button">
+                Saiba Mais
+              </button>
+            </aside>
           </div>
         </div>
-      </div>
+      </section>
     </main>
+
+    <!-- ===========================
+       SCRIPTS
+  =========================== -->
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script IMC -->
+    <script src="../js/ScriptIMC.js"></script>
   </body>
 </html>

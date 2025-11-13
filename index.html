@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LifeHub</title>
 
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <!-- Roboto para textos -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
@@ -13,42 +19,62 @@
 
     <!-- Seu CSS separado -->
     <link rel="stylesheet" href="css/StyleHome.css" />
-
     <link rel="icon" href="imagens/favicon.ico" />
   </head>
 
   <body>
     <!-- HEADER -->
-    <header class="header">
-      <div class="header-container">
-        <div class="logo-container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
           <img
-            class="imlog"
             src="imagens/android-chrome-512x512-removebg-preview.png"
-            alt="logo do site"
+            alt="logo"
+            width="40"
+            height="40"
+            class="me-2"
           />
-          <a href="index.html" class="logo-text">LifeHub</a>
-        </div>
-
-        <!-- Menu Hambúrguer (só aparece no mobile) -->
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <nav class="nav">
-          <ul class="nav-menu" id="nav-menu">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="pages/planos.html">Planos</a></li>
-            <li><a href="#nutrition">Nutrição</a></li>
-            <li><a href="pages/imc.html">Calculadora IMC</a></li>
-            <li><a href="#workouts">Treinos</a></li>
-            <li><a href="pages/cadastro.html" class="btn-nav">Comece Agora</a></li>
+          <span class="fw-bold">LifeHub</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/planos.html">Planos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nutrição</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/imc.html">Calculadora IMC</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Treinos</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-success-custom ms-lg-2"
+                href="/pages/cadastro.html"
+                >Comece Agora</a
+              >
+            </li>
           </ul>
-        </nav>
+        </div>
       </div>
-    </header>
+    </nav>
 
     <!-- HERO -->
     <section class="hero">
@@ -185,104 +211,135 @@
     </section>
 
     <!-- CARROSSEL DE VÍDEOS -->
-    <section class="section-videos">
+    <section class="section-videos py-5">
       <div class="container">
-        <h2>Aprenda com nossos especialistas</h2>
-        <p>
+        <h2 class="text-center mb-3">Aprenda com nossos especialistas</h2>
+        <p class="text-center mb-5">
           Descubra dicas valiosas sobre nutrição, treinos e bem-estar com
           conteúdos exclusivos dos nossos profissionais de saúde.
         </p>
 
-        <div class="video-carousel">
-          <button class="carousel-btn prev-btn" id="prevBtn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M15 18L9 12L15 6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
+        <!-- Bootstrap Carousel -->
+        <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#videoCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#videoCarousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#videoCarousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#videoCarousel"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#videoCarousel"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+          </div>
 
-          <div class="video-container" id="videoContainer">
-            <div class="video-slide active">
-              <iframe
-                src="https://www.youtube.com/embed/XNLQtWdk6fc"
-                title="Nutrição: como gostar de alimentos saudáveis"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-              <h4>Nutrição: Como Gostar de Alimentos Saudáveis</h4>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/XNLQtWdk6fc"
+                  title="Nutrição: como gostar de alimentos saudáveis"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h4 class="text-center mt-3">
+                Nutrição: Como Gostar de Alimentos Saudáveis
+              </h4>
             </div>
 
-            <div class="video-slide">
-              <iframe
-                src="https://www.youtube.com/embed/oSt6GsSw6VI"
-                title="Dicas de nutrição essenciais"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-              <h4>Dicas de Nutrição Essenciais</h4>
+            <div class="carousel-item">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/oSt6GsSw6VI"
+                  title="Dicas de nutrição essenciais"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h4 class="text-center mt-3">Dicas de Nutrição Essenciais</h4>
             </div>
 
-            <!-- Substitui o 3º .video-slide -->
-            <div class="video-slide">
-              <iframe
-                src="https://www.youtube.com/embed/zqPA_xfQlVw"
-                title="Como Perder Gordura"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-              <h4>Como Perder Gordura</h4>
+            <div class="carousel-item">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/zqPA_xfQlVw"
+                  title="Como Perder Gordura"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h4 class="text-center mt-3">Como Perder Gordura</h4>
             </div>
 
-            <div class="video-slide">
-              <iframe
-                src="https://www.youtube.com/embed/v7AYKMP6rOE"
-                title="Yoga para iniciantes (20 minutos)"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-              <h4>Yoga para Iniciantes (20 min)</h4>
+            <div class="carousel-item">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/v7AYKMP6rOE"
+                  title="Yoga para iniciantes (20 minutos)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h4 class="text-center mt-3">Yoga para Iniciantes (20 min)</h4>
             </div>
 
-            <div class="video-slide">
-              <iframe
-                src="https://www.youtube.com/embed/xyQY8a-ng6g"
-                title="Como a alimentação afeta seu cérebro - TED-Ed"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-              <h4>Como a Alimentação Afeta seu Cérebro (TED-Ed)</h4>
+            <div class="carousel-item">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/xyQY8a-ng6g"
+                  title="Como a alimentação afeta seu cérebro - TED-Ed"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h4 class="text-center mt-3">
+                Como a Alimentação Afeta seu Cérebro (TED-Ed)
+              </h4>
             </div>
           </div>
 
-          <button class="carousel-btn next-btn" id="nextBtn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M9 18L15 12L9 6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#videoCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
           </button>
-        </div>
-
-        <div class="carousel-indicators" id="indicators">
-          <span class="indicator active" data-slide="0"></span>
-          <span class="indicator" data-slide="1"></span>
-          <span class="indicator" data-slide="2"></span>
-          <span class="indicator" data-slide="3"></span>
-          <span class="indicator" data-slide="4"></span>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#videoCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </section>
@@ -292,6 +349,8 @@
       © 2025 LifeHub — Todos os direitos reservados.
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/ScriptHome.js"></script>
   </body>
 </html>

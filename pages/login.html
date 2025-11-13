@@ -1,68 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - LifeHub</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="icon" href="../imagens/favicon.ico" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - LifeHub</title>
-  <link rel="stylesheet" href="/css/login.css">
-  <link rel="icon" href="../imagens/favicon.ico" />
-</head>
-
-<body>
-  <!-- HEADER COM HAMBURGUER -->
-  <header class="header">
-    <div class="header-container">
-      <div class="logo-container">
-        <img class="imlog" src="../imagens/android-chrome-512x512-removebg-preview.png" alt="Logo LifeHub" />
-        <a href="/index.html" class="logo-text">LifeHub</a>
+  <body>
+    <!-- NAVBAR BOOTSTRAP -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <img
+            src="../imagens/android-chrome-512x512-removebg-preview.png"
+            alt="logo"
+            width="40"
+            height="40"
+            class="me-2"
+          />
+          <span class="fw-bold">LifeHub</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="../index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="planos.html">Planos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nutrição</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="imc.html">Calculadora IMC</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Treinos</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-success-custom ms-lg-2"
+                href="cadastro.html"
+                >Comece Agora</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav class="nav">
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="/index.html">Início</a></li>
-          <li><a href="planos.html">Planos</a></li>
-          <li><a href="imc.html">IMC</a></li>
-          <li><a href="login.html" class="btn-nav">Login/Cadastro</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </nav>
 
-  <div class="menu-overlay" id="menu-overlay" hidden></div>
+    <div class="menu-overlay" id="menu-overlay" hidden></div>
 
-  <!-- LOGIN E CADASTRO -->
-  <main class="container">
-    <section class="form-section" id="login-section">
-      <h1>Login</h1>
-      <form action="dashboard.html" method="POST">
-        <div class="input-box">
-          <input type="email" name="email" placeholder="Email institucional" required
-            pattern=".+@(unifoa\.edu\.br|foa\.org\.br)" title="Use email institucional válido!" />
-          <i class="bx bxs-user"></i>
-        </div>
-        <div class="input-box">
-          <input type="password" name="senha" placeholder="Senha (6-10 caracteres)" required
-            pattern="(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{6,10}" title="Senha: 6 a 10 caracteres, letras e números" />
-          <i class="bx bxs-lock-alt"></i>
-        </div>
-        <div class="remenber-forgot">
-          <label>
-            <input type="checkbox"> Lembrar minha Senha
-          </label>
-          <a href="#">Esqueci minha senha</a>
-        </div>
-        <button type="submit" class="login">Login</button>
-        <p class="switch-form">Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
-      </form>
-    </section>
-  </main>
+    <!-- LOGIN E CADASTRO -->
+    <main class="container">
+      <section class="form-section" id="login-section">
+        <h1>Login</h1>
+        <form action="dashboard.html" method="POST">
+          <div class="input-box">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email institucional"
+              required
+              pattern=".+@(unifoa\.edu\.br|foa\.org\.br)"
+              title="Use email institucional válido!"
+            />
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              name="senha"
+              placeholder="Senha (6-10 caracteres)"
+              required
+              pattern="(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{6,10}"
+              title="Senha: 6 a 10 caracteres, letras e números"
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+          <div class="remenber-forgot">
+            <label> <input type="checkbox" /> Lembrar minha Senha </label>
+            <a href="#">Esqueci minha senha</a>
+          </div>
+          <button type="submit" class="login">Login</button>
+          <p class="switch-form">
+            Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+          </p>
+        </form>
+      </section>
+    </main>
 
-  <script src="/js/log.js"></script>
-</body>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/log.js"></script>
+  </body>
 </html>

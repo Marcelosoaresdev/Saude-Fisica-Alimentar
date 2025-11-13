@@ -1,4 +1,26 @@
 /* ===========================
+   FONTES LOCAIS
+=========================== */
+@font-face {
+  font-family: "Agrandir Tight Black";
+  src: url("../fonts/Agrandir-TightBlack.woff2") format("woff2"),
+    url("../fonts/Agrandir-TightBlack.woff") format("woff"),
+    url("../fonts/Agrandir-TightBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agrandir Tight Bold";
+  src: url("../fonts/Agrandir-TightBold.woff2") format("woff2"),
+    url("../fonts/Agrandir-TightBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===========================
    BASE E RESET
 =========================== */
 * {
@@ -13,206 +35,16 @@ body.is-locked {
 
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  background-image: url("/imagens/loginPage/fundo.png");
+  background-image: url("../imagens/loginPage/fundo.png");
   background-color: #000;
-  background-size: cover;        /* cobre toda a tela mantendo proporção */
+  background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
-  background-attachment: fixed;  /* mantém o fundo estável ao rolar */
+  background-attachment: fixed;
   min-height: 100vh;
   color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-  
-.logo-container img {
-  width: 42px;
-  height: auto;
-}
-
-
-
-/* ===========================
-   HEADER
-=========================== */
-.header {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  background: #faf8f3;
-  border-bottom: 1px solid #eeeeee;
-  z-index: 100;
-}
-
-/* Espaçamento e tamanho do container */
-.header-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 101;
-}
-
-.logo-text {
-  font-weight: 900;
-  font-size: 22px;
-  color: #111;
-  text-decoration: none;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 102;
-  padding: 8px;
-  margin-left: auto;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #111;
-  margin: 3px 0;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-
-.nav-menu {
-  display: flex;
-  list-style-type: none;
-}
-.nav-menu a {
-  color: #111;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.nav-menu a:hover {
-  background: rgba(0, 0, 0, 0.06);
-}
-
-.btn-nav {
-  border: 2px solid #111;
-  border-radius: 10px;
-  padding: 8px 14px;
-  margin-left: 20px;
-  font-weight: 700;
-}
-
-/* ===========================
-   MOBILE MENU
-=========================== */
-@media (max-width: 768px) {
- 
-  .hamburger {
-    display: flex;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: #faf8f3;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 80px;
-    gap: 30px;
-    transition: right 0.3s ease;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 99;
-    display: flex;
-  }
-
-  .nav-menu.active {
-    right: 0;
-  }
-
-  .nav-menu li {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0;
-  }
-
-  .nav-menu a {
-    width: 90%;
-    padding: 15px 20px;
-    font-size: 18px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  .btn-nav {
-    background: #067a45;
-    color: #fff;
-    border: 2px solid #067a45;
-    border-radius: 25px;
-    padding: 12px 20px;
-    margin-top: 40px;
-    width: 90%;
-    max-width: 200px;
-    text-align: center;
-    display: block;
-    margin: auto;
-  }
-
-  .btn-nav:hover {
-    background: #055a35;
-    border-color: #055a35;
-  }
-}
-
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease visibility 0.3s ease;
-  z-index: 98;
-}
-
-.menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.menu-overlay[hidden] {
-  display: none;
 }
 
 /* ===========================
@@ -357,13 +189,40 @@ body {
     font-size: 18px;
   }
 }
+
 /* ===========================
    FUNDO RESPONSIVO
 =========================== */
 @media (max-width: 768px) {
   body {
-    background-attachment: scroll; /* Corrige o bug do fundo fixo no mobile */
-    background-position: right; /* Mostra melhor o topo da imagem */
-    background-size: cover; /* Mantém proporção sem esticar */
+    background-attachment: scroll;
+    background-position: right;
+    background-size: cover;
+  }
+}
+
+/* ===========================
+   NAVBAR BOOTSTRAP
+=========================== */
+.btn-success-custom {
+  background-color: #067a45 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  font-weight: 700;
+}
+
+.btn-success-custom:hover {
+  background-color: #055a34 !important;
+  color: white !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .navbar-nav .nav-item {
+    margin: 0 auto;
   }
 }
