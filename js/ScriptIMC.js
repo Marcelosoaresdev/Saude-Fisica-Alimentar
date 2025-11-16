@@ -1,5 +1,6 @@
 // ===========================
-// CALCULADORA DE IMC
+// CALCULADORA DE IMC (simples)
+// Altura diretamente em metros
 // ===========================
 document.addEventListener("DOMContentLoaded", function () {
   const calcularBtn = document.getElementById("calcular");
@@ -8,29 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultadoIMC = document.getElementById("resultadoIMC");
   const classificacaoIMC = document.getElementById("classificacaoIMC");
 
-  if (
-    !calcularBtn ||
-    !pesoInput ||
-    !alturaInput ||
-    !resultadoIMC ||
-    !classificacaoIMC
-  ) {
+  if (!calcularBtn || !pesoInput || !alturaInput || !resultadoIMC || !classificacaoIMC) {
     return;
   }
 
   calcularBtn.addEventListener("click", function () {
-    const peso = parseFloat(pesoInput.value);
-    const alturaCm = parseFloat(alturaInput.value);
+    
+    const peso = parseFloat(pesoInput.value.replace(",", "."));
+    const altura = parseFloat(alturaInput.value.replace(",", "."));
 
-    if (!peso || !alturaCm || alturaCm <= 0) {
+    if (!peso || !altura || altura <= 0) {
+      resultadoIMC.textContent = "-";
       classificacaoIMC.textContent = "Por favor, insira valores válidos.";
       return;
     }
 
-    // Convertendo cm para metros
-    const altura = alturaCm / 100;
-
-    // Cálculo do IMC
+    // IMC = peso / (altura²)
     const imc = (peso / (altura * altura)).toFixed(1);
 
     let classificacao = "";
