@@ -796,6 +796,25 @@ h3 {
 /* ===========================
    NAVBAR BOOTSTRAP
 =========================== */
+
+.navbar-nav {
+  gap: 8px;
+}
+
+.nav-item:hover,
+.nav-link:hover,
+.nav-link.active:hover {
+  color: white; /* ou a cor desejada */
+  text-decoration: underline;
+  background: #067a45;
+  transition: none;
+  border-radius: 8px;
+}
+
+.nav-link {
+  border-radius: 8px;
+}
+
 .btn-success-custom {
   background-color: #067a45 !important;
   color: white !important;
@@ -805,10 +824,6 @@ h3 {
   font-weight: 700;
 }
 
-.btn-success-custom:hover {
-  background-color: #055a34 !important;
-  color: white !important;
-}
 
 @media (max-width: 991.98px) {
   .navbar-nav {
