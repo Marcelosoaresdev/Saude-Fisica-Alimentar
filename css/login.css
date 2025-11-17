@@ -204,6 +204,25 @@ body {
 /* ===========================
    NAVBAR BOOTSTRAP
 =========================== */
+
+.navbar-nav {
+  gap: 8px;
+}
+
+.nav-item:hover,
+.nav-link:hover,
+.nav-link.active:hover {
+  color: white !important; /* ou a cor desejada */
+  text-decoration: underline;
+  background: #067a45;
+  transition: none;
+  border-radius: 8px;
+}
+
+.nav-link {
+  border-radius: 8px;
+}
+
 .btn-success-custom {
   background-color: #067a45 !important;
   color: white !important;
