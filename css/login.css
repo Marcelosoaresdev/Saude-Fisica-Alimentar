@@ -4,8 +4,8 @@
 @font-face {
   font-family: "Agrandir Tight Black";
   src: url("../fonts/Agrandir-TightBlack.woff2") format("woff2"),
-    url("../fonts/Agrandir-TightBlack.woff") format("woff"),
-    url("../fonts/Agrandir-TightBlack.ttf") format("truetype");
+       url("../fonts/Agrandir-TightBlack.woff") format("woff"),
+       url("../fonts/Agrandir-TightBlack.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -14,14 +14,14 @@
 @font-face {
   font-family: "Agrandir Tight Bold";
   src: url("../fonts/Agrandir-TightBold.woff2") format("woff2"),
-    url("../fonts/Agrandir-TightBold.woff") format("woff");
+       url("../fonts/Agrandir-TightBold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 /* ===========================
-   BASE E RESET
+   RESET E BASE
 =========================== */
 * {
   margin: 0;
@@ -29,13 +29,9 @@
   box-sizing: border-box;
 }
 
-body.is-locked {
-  overflow: hidden;
-}
-
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  background-image: url("../imagens/loginPage/teste.png");
+  background-image: url("../imagens/loginPage/fundo.png");
   background-color: #000;
   background-size: cover;
   background-position: left;
@@ -48,127 +44,162 @@ body {
 }
 
 /* ===========================
-   FORMULÁRIOS
+   LAYOUT DO FORMULÁRIO
 =========================== */
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 480px;
+  justify-content: center;
   margin-top: 80px;
 }
 
 .form-section {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 2px solid rgba(248, 248, 248, 0.2);
-  border-radius: 10px;
-  padding: 30px 40px;
-  margin-bottom: 40px;
+  width: 480px;
+  background-color: rgba(0, 0, 0, 0.55); /* Mais contraste */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 35px 45px;
   backdrop-filter: blur(20px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+  transition: 0.3s ease;
 }
 
 .form-section h1 {
   text-align: center;
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-weight: 600;
 }
 
+/* ===========================
+   INPUTS
+=========================== */
 .input-box {
   position: relative;
   width: 100%;
   height: 50px;
-  margin: 20px 0;
+  margin: 18px 0;
 }
 
 .input-box input {
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 40px;
-  padding: 20px 45px 20px 20px;
-  font-size: 18px;
+  border-radius: 50px;
+  padding: 0 45px 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
   color: #fff;
+  font-size: 16px;
   outline: none;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .input-box input:focus {
-  border-color: #067a45;
-  background-color: rgba(0, 0, 0, 0.2);
+  border-color: #0ca85a;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Placeholder mais visível */
+input::placeholder {
+  color: #e0e0e0;
+  font-weight: 400;
+}
+
+/* Ícones */
 .input-box i {
   position: absolute;
   right: 20px;
-  font-size: 20px;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 18px;
+  color: #cfcfcf;
 }
 
+/* ===========================
+   LEMBRAR / ESQUECI
+=========================== */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.switch-form {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Links mais integrados ao tema */
+.switch-form a,
+.remember-forgot a {
+  color: #0ca85a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.switch-form a:hover,
+.remember-forgot a:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+/* ===========================
+   BOTÃO DE LOGIN
+=========================== */
 .login {
   width: 100%;
   height: 50px;
+  margin-top: 20px;
   border-radius: 40px;
+  background-color: #fff;
+  border: none;
+  color: #000;
+  font-size: 17px;
   font-weight: 600;
   cursor: pointer;
-  border: none;
-  background-color: #fff;
-  color: #000000;
-  font-size: 16px;
-  margin-top: 20px;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
 }
 
 .login:hover {
-  background-color: transparent;
-  border: 2px solid rgba(7, 1, 1, 0.2);
+  background-color: #0ca85a;
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(12, 168, 90, 0.4);
 }
 
-.switch-form {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
+/* ===========================
+   NAVBAR (BOOTSTRAP)
+=========================== */
+.navbar-nav {
+  gap: 10px;
 }
 
-.switch-form a {
-  color: rgba(13, 110, 253, 1);
-  text-decoration: none;
+.nav-link {
+  border-radius: 8px;
 }
 
-.remenber-forgot {
-  display: flex;
-  justify-content: space-between;
-}
-
-.remenber-forgot a{
-  display: flex;
-  justify-content: space-between;
-  color: rgba(13, 110, 253, 1);
+.nav-link:hover {
+  background-color: #0ca85a;
+  color: white !important;
+  text-decoration: underline;
 }
 
 /* ===========================
    RESPONSIVIDADE
 =========================== */
-@media (max-width: 1024px) {
-  .container {
+@media (max-width: 768px) {
+  .form-section {
     width: 90%;
-    padding: 20px;
+    padding: 25px;
   }
 
-  .form-section h1 {
-    font-size: 32px;
-  }
-
-  .input-box input {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 600px) {
   .form-section h1 {
     font-size: 28px;
   }
@@ -177,134 +208,3 @@ body {
     font-size: 14px;
   }
 }
-
-@media (min-width: 1920px) {
-  .container {
-    width: 600px;
-  }
-
-  .form-section {
-    padding: 40px 50px;
-  }
-
-  .form-section h1 {
-    font-size: 40px;
-  }
-
-  .input-box input {
-    font-size: 18px;
-  }
-}
-
-/* ===========================
-   FUNDO RESPONSIVO
-=========================== */
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-    background-position: right;
-    background-size: cover;
-  }
-}
-
-/* ===========================
-   NAVBAR BOOTSTRAP
-=========================== */
-
-.navbar-nav {
-  gap: 8px;
-}
-
-.nav-item:hover,
-.nav-link:hover,
-.nav-link.active:hover {
-  color: white !important; /* ou a cor desejada */
-  text-decoration: underline;
-  background: #067a45;
-  transition: none;
-  border-radius: 8px;
-}
-
-.nav-link {
-  border-radius: 8px;
-}
-
-.btn-success-custom {
-  background-color: #067a45 !important;
-  color: white !important;
-  border: none !important;
-  padding: 8px 20px !important;
-  border-radius: 8px !important;
-  font-weight: 700;
-}
-
-.btn-success-custom:hover {
-  background-color: #055a34 !important;
-  color: white !important;
-}
-
-@media (max-width: 991.98px) {
-  .navbar-nav {
-    text-align: center;
-  }
-  .navbar-nav .nav-item {
-    margin: 0 auto;
-  }
-}
-/*
-   HOVERS /lancei aqui no final do codigo pra ficar melhor mecher dps/
- */
-
-.form-section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease;
-}
-
-.form-section h1:hover {
-  letter-spacing: 1px;
-  transition: 0.3s ease;
-}
-
-
-.input-box input:hover {
-  border-color: #0ca85a;
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-
-.input-box i:hover {
-  color: #0ca85a;
-  transition: 0.3s ease;
-}
-
-/* Hover em links (já existe, mas fica mais bonito assim) */
-.switch-form a:hover {
-  text-decoration: underline;
-  transform: scale(1.08);   
-  display: inline-block;    
-  transition: all 0.2s ease;
-}
-
-.remenber-forgot a:hover {
-  text-decoration: underline;
-  transform: scale(1.08);   
-  display: inline-block;    
-  transition: all 0.2s ease;
-}
-
-.login:hover {
-  background-color: #0ca85a;
-  border: none;
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 0 12px rgba(10, 200, 120, 0.4);
-}
-
-
-/*alteraçao extra, no texto pra melhor visibilidade*/
-input::placeholder {
-  color: #bfbfbf; /* deixa mais escuro */
-  opacity: 1;     /* garante que fique forte */
-}
-
