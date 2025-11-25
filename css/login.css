@@ -71,6 +71,28 @@ body {
 }
 
 /* ===========================
+   BOTÃO "COMECE AGORA"
+=========================== */
+.btn-success-custom {
+  background-color: #067a45 !important; 
+  color: #fff !important;
+  border: none !important;
+  padding: 8px 20px;
+  border-radius: 999px; 
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-success-custom:hover {
+  background-color: #067a45 !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0 6px rgba(6, 122, 69, 0.5);
+}
+
+
+/* ===========================
    INPUTS
 =========================== */
 .input-box {
