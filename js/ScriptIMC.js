@@ -1,6 +1,5 @@
 // ===========================
-// CALCULADORA DE IMC (simples)
-// Altura diretamente em metros
+// CALCULADORA DE IMC
 // ===========================
 document.addEventListener("DOMContentLoaded", function () {
   const calcularBtn = document.getElementById("calcular");
