@@ -54,7 +54,7 @@ body {
 
 .form-section {
   width: 480px;
-  background-color: rgba(0, 0, 0, 0.55); /* Mais contraste */
+  background-color: rgba(0, 0, 0, 0.55); /* Mais contraste na caixa de login */
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 14px;
   padding: 35px 45px;
@@ -71,8 +71,9 @@ body {
 }
 
 /* ===========================
-   BOTÃO "COMECE AGORA"
+   BOTÃO "COMECE AGORA
 =========================== */
+
 .btn-success-custom {
   background-color: #067a45 !important; 
   color: #fff !important;
@@ -120,13 +121,17 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Placeholder mais visível */
+/* ===========================
+   Placeholder mais visível 
+===========================*/
 input::placeholder {
   color: #e0e0e0;
   font-weight: 400;
 }
 
-/* Ícones */
+/* ===========================
+   Ícones 
+===========================*/
 .input-box i {
   position: absolute;
   right: 20px;
@@ -155,7 +160,9 @@ input::placeholder {
   font-weight: 500;
 }
 
-/* Links mais integrados ao tema */
+/* ===========================
+    Links mais integrados ao tema
+=========================== */
 .switch-form a,
 .remember-forgot a {
   color: #0ca85a;
