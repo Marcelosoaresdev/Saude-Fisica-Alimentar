@@ -230,3 +230,25 @@ input::placeholder {
     font-size: 14px;
   }
 }
+
+/* ===========================
+  MENSAGEM DE ERRO
+=========================== */
+
+.modal-erro-content {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  font-size: 1.2rem;
+  color: #d32f2f;
+  text-align: center;
+  min-width: 250px;
+  max-width: 90vw;
+  position: relative;
+  animation: modalShow 0.2s;
+}
+@keyframes modalShow {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
