@@ -1,25 +1,4 @@
-// Função para exibir mensagens de erro no modal
-function showModalErro(msg) {
-  const modal = document.getElementById("modal-erro");
-  const msgSpan = document.getElementById("modal-erro-msg");
 
-  if (modal && msgSpan) {
-    msgSpan.textContent = msg;
-    modal.style.display = "flex";
-
-    // Fecha ao clicar fora do conteúdo
-    modal.onclick = function (e) {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-
-    // Fecha automaticamente após 5 segundos
-    setTimeout(() => {
-      modal.style.display = "none";
-    }, 5000);
-  }
-}
 
 // Pega os elementos do DOM
 const cepInput = document.getElementById("cep");
